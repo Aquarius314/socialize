@@ -21,7 +21,7 @@ public class ProfileController {
         if (person.isPresent()) {
             model.addAttribute("person", person.get());
         } else {
-            return "redirect:/notfound";
+            return "redirect:/error";
         }
         return "profile/profile-page";
     }
