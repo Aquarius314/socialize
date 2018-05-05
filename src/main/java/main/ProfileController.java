@@ -18,11 +18,7 @@ public class ProfileController {
     @RequestMapping("/profile/{id}")
     public String profilePage(Model model, @PathVariable(name="id") String id) {
         Optional<Person> person = PersonDao.getById(id);
-        if (person.isPresent()) {
-            model.addAttribute("person", person.get());
-        } else {
-            return "redirect:/error";
-        }
+        person.ifPresent(person1 -> model.addAttribute("person", person1));
         return "profile/profile-page";
     }
 }

@@ -3,6 +3,6 @@ body {
     padding: 20px;
 }
 
-h1, h2, h3, p {
-    text-alignment: center;
+div.error {
+    text-align: center;
 }
