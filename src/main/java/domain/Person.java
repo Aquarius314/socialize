@@ -7,16 +7,26 @@ import java.util.Date;
  */
 public class Person {
 
+    private String id;
     private String name;
     private String surname;
-    private Date birthDate;
+    private Date birthdate;
 
     public Person() {}
 
-    public Person(String name, String surname, Date birthDate) {
+    public Person(String id, String name, String surname, Date birthDate) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
-        this.birthDate = birthDate;
+        this.birthdate = birthDate;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -35,11 +45,11 @@ public class Person {
         this.surname = surname;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public Date getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthdate(Date birthDate) {
+        this.birthdate = birthDate;
     }
 }

@@ -12,6 +12,6 @@ public class RegistrationController {
 
     @RequestMapping("/register")
     public String registrationPage() {
-        return "registration-page.html";
+        return "register/registration-page";
     }
 }

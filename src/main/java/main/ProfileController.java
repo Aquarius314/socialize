@@ -1,9 +1,13 @@
 package main;
 
+import dao.PersonDao;
+import domain.Person;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.Optional;
 
 /**
  * Created by jakub on 05.05.18.
@@ -11,8 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class ProfileController {
 
-    @RequestMapping("/profile")
-    public String profilePage() {
-        return "profile-page.html";
+    @RequestMapping("/profile/{id}")
+    public String profilePage(Model model, @PathVariable(name="id") String id) {
+        Optional<Person> person = PersonDao.getById(id);
+        if (person.isPresent()) {
+            model.addAttribute("person", person.get());
+        } else {
+            return "redirect:/notfound";
+        }
+        return "profile/profile-page";
     }
 }
