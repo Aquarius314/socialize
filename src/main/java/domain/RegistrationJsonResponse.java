@@ -5,17 +5,8 @@ package domain;
  */
 public class RegistrationJsonResponse {
 
-    private RegistrationForm registrationForm;
     private boolean validated;
     private String message;
-
-    public RegistrationForm getRegistrationForm() {
-        return registrationForm;
-    }
-
-    public void setRegistrationForm(RegistrationForm registrationForm) {
-        this.registrationForm = registrationForm;
-    }
 
     public boolean isValidated() {
         return validated;

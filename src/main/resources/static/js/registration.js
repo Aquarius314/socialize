@@ -27,9 +27,9 @@ registerButton.onclick = function (e) {
                 'surname' : surname
             },
             success : function(res) {
-                alert("Odpowiedź: " + res.message);
-
-                console.log(res);
+                if (res.validated) {
+                    window.location.href = '/all-profiles';
+                }
             }
         })
     } else {

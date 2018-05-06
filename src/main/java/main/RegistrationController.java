@@ -26,7 +26,6 @@ public class RegistrationController {
         System.out.println("Received form: ");
         System.out.println(form.getEmail() + ", " + form.getPassword());
         RegistrationJsonResponse response = new RegistrationJsonResponse();
-        response.setRegistrationForm(form);
         response.setValidated(validateUserRegistration(form));
         User user = new User();
         user.setEmail(form.getEmail());
