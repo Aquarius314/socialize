@@ -32,11 +32,6 @@ public class DatabaseAdapter {
                         .setProjectId(PROJECT_ID)
                         .build();
         db = firestoreOptions.getService();
-        try {
-            printUserById("xYnVhUt2ZwYXqyEvEje7");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public static Optional<User> getUserById(String id) {
@@ -85,15 +80,22 @@ public class DatabaseAdapter {
         return new LinkedList<User>();
     }
 
-    public void printUserById(String id) throws ExecutionException, InterruptedException {
-        ApiFuture<DocumentSnapshot> future = db.collection("users")
-                .document(id)
-                .get();
-        DocumentSnapshot document = future.get();
-        if (document.exists()) {
-            System.out.println("Document data: " + document.getData());
-        } else {
-            System.out.println("No such document!");
+    public static boolean emailRegistered(String email) {
+        return true; // TODO validate email authentication!
+    }
+
+    public static boolean registerUser(User user) {
+        ApiFuture<DocumentReference> futureDocRef = db.collection("users").add(user);
+        try {
+            DocumentReference docRef = futureDocRef.get();
+            String id = docRef.getId();
+            System.out.println("Registered user " + user.getDisplayName() + " with id " + id);
+            docRef.update("id", id);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Something went wrong!");
+            e.printStackTrace();
+            return false;
         }
     }
 

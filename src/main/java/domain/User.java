@@ -8,14 +8,16 @@ import java.util.Date;
 public class User {
 
     private String id;
+    private String email;
     private String name;
     private String surname;
     private Date birthdate;
 
     public User() {}
 
-    public User(String id, String name, String surname, Date birthDate) {
+    public User(String id, String email, String name, String surname, Date birthDate) {
         this.id = id;
+        this.email = email;
         this.name = name;
         this.surname = surname;
         this.birthdate = birthDate;
@@ -31,6 +33,14 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
