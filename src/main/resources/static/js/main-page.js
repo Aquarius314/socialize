@@ -1,1 +1,1 @@
-alert("Executing script");
+console.log("Loaded :)");

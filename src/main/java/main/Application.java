@@ -1,18 +1,16 @@
 package main;
 
-import dao.PersonDao;
-import domain.Person;
+import dao.DatabaseAdapter;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Date;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class Application {
 
     public static void main(String[] args) {
-        PersonDao.addPerson(new Person("00", "Jakub", "Wójcik", new Date()));
-        PersonDao.addPerson(new Person("01", "Maciej", "Syrek", new Date()));
+        DatabaseAdapter db = new DatabaseAdapter();
         SpringApplication.run(Application.class, args);
     }
 }

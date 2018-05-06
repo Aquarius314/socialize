@@ -5,16 +5,16 @@ import java.util.Date;
 /**
  * Created by jakub on 05.05.18.
  */
-public class Person {
+public class User {
 
     private String id;
     private String name;
     private String surname;
     private Date birthdate;
 
-    public Person() {}
+    public User() {}
 
-    public Person(String id, String name, String surname, Date birthDate) {
+    public User(String id, String name, String surname, Date birthDate) {
         this.id = id;
         this.name = name;
         this.surname = surname;

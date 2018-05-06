@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <title>Profile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+</head>
+<body>
+
+<h1>All registered profiles</h1>
+
+    <!--<h2 th:text="'Profile of ' + ${user.name} + ' ' + ${user.surname}">User Profile</h2>-->
+    <!--<p th:text="'Born: ' + ${user.birthdate}"></p>-->
+
+    <div class="container">
+        <div th:if="${not #lists.isEmpty(profiles)}">
+            <h2>Profiles list</h2>
+            <table class="profiles-table">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Birthdate</th>
+                    <th>Image</th>
+                    <th>View</th>
+                </tr>
+                <tr th:each="profile : ${profiles}">
+                    <td th:text="${profile.id}"></td>
+                    <td th:text="${profile.name}"></td>
+                    <td th:text="${profile.surname}"></td>
+                    <td th:text="${profile.birthdate}"></td>
+                    <td><a th:href="${'/profile/' + profile.id}">View</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
