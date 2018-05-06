@@ -21,6 +21,10 @@ public class User {
         this.birthdate = birthDate;
     }
 
+    public String getDisplayName() {
+        return name.concat(" ").concat(surname);
+    }
+
     public String getId() {
         return id;
     }

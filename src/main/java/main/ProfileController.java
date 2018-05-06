@@ -26,46 +26,19 @@ public class ProfileController {
 
     @RequestMapping("/profile/{id}")
     public String profilePage(Model model, @PathVariable(name="id") String id) {
-        System.out.println("Okej dostałem takie id: " + id);
-        if (id.equals("all")) {
-            return allProfiles(model);
-        }
-        try {
-            ApiFuture<DocumentSnapshot> futureDoc = DatabaseAdapter.getFutureUserById(id);
-            DocumentSnapshot documentSnapshot = futureDoc.get();
-            if (documentSnapshot.exists()) {
-                User user = documentSnapshot.toObject(User.class);
-                if (user != null) {
-                    model.addAttribute("user", user);
-                    System.out.println("Udało się!");
-                } else {
-                    System.out.println("User był nullem");
-                }
-            } else {
-                System.out.println("Dokument nie istniał");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        Optional<User> user = DatabaseAdapter.getUserById(id);
+        if (user.isPresent()) {
+            model.addAttribute("user", user.get());
+        } else {
+            model.addAttribute("user", new User());
         }
         return "profile/profile-page";
     }
 
-    private String allProfiles(Model model) {
-        try {
-            ApiFuture<QuerySnapshot> futureQuery = DatabaseAdapter.getFutureAllUsers();
-            List<QueryDocumentSnapshot> querySnapshot = futureQuery.get().getDocuments();
-            if (!querySnapshot.isEmpty()) {
-                List<User> allUsers = new LinkedList<>();
-                for (DocumentSnapshot doc : querySnapshot) {
-                    User user = doc.toObject(User.class);
-                    allUsers.add(user);
-                    System.out.println("Znaleziony user: " + user.getName() + " " + user.getSurname());
-                }
-                model.addAttribute("profiles", allUsers);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @RequestMapping("/all-profiles")
+    public String allProfiles(Model model) {
+        List<User> allUsers = DatabaseAdapter.getAllUsers();
+        model.addAttribute("users", allUsers);
         return "profile/all-profiles";
     }
 }

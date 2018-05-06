@@ -6,3 +6,13 @@ body {
 div.error {
     text-align: center;
 }
+/*
+div.container {
+    border: 2px solid black;
+    padding: 10px;
+}
+*/
+tr, th, td {
+    border: 2px solid black;
+    padding: 5px;
+}
