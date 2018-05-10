@@ -4,4 +4,6 @@ build/
 .idea/
 **/.idea/
 .gradle/
-gradle/
+out/
+build/classes
+build/resources
