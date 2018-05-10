@@ -89,7 +89,8 @@ public class DatabaseAdapter {
         try {
             DocumentReference docRef = futureDocRef.get();
             String id = docRef.getId();
-            System.out.println("Registered user " + user.getDisplayName() + " with id " + id);
+            String displayName = user.getName().concat(" ").concat(user.getSurname());
+            System.out.println("Registered user " + displayName + " with id " + id);
             docRef.update("id", id);
             return true;
         } catch (Exception e) {
