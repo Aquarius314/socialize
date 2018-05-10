@@ -1,6 +1,5 @@
 package domain;
 
-import com.google.cloud.firestore.annotation.Exclude;
 
 import java.util.Date;
 
