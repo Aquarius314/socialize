@@ -1,9 +1,0 @@
-build/
-.idea
-.idea/modules
-.idea/
-**/.idea/
-.gradle/
-out/
-build/classes
-build/resources
