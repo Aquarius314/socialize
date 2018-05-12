@@ -4,6 +4,7 @@ import dao.DatabaseAdapter;
 import domain.RegistrationForm;
 import domain.RegistrationJsonResponse;
 import domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class RegistrationController {
+
+    @Autowired
+    DatabaseAdapter databaseAdapter;
 
     @GetMapping("/")
     public String registrationPage() {
@@ -31,7 +35,7 @@ public class RegistrationController {
         user.setEmail(form.getEmail());
         user.setName(form.getName());
         user.setSurname(form.getSurname());
-        if (DatabaseAdapter.registerUser(user)) {
+        if (databaseAdapter.registerUser(user)) {
             System.out.println("User registered successfully");
             response.setMessage("User registered successfully");
         } else {
@@ -42,6 +46,6 @@ public class RegistrationController {
     }
 
     private boolean validateUserRegistration(RegistrationForm form) {
-        return DatabaseAdapter.emailRegistered(form.getEmail());
+        return databaseAdapter.emailRegistered(form.getEmail());
     }
 }
