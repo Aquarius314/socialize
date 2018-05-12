@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+                     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <title>Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<h1>All registered users</h1>
+<div id="include-top-bar"></div>
+
+<div class="container">
+    <div th:if="${not #lists.isEmpty(users)}">
+        <table class="users-table">
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Birthdate</th>
+                <th>View</th>
+                <th>Id</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.surname}"></td>
+                <td th:text="${user.birthdate}"></td>
+                <td><a th:href="${'/profile/' + user.id}">View</a></td>
+                <td th:text="${user.id}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script language="javascript" type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/attach-top-bar.js}"></script>
+
+</body>
+</html>
