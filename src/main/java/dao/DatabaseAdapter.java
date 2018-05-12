@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by jakub on 05.05.18.
@@ -18,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 @Repository
 public class DatabaseAdapter {
 
-    private static Firestore db;
+    private Firestore db;
     private final String PROJECT_ID = "socialize-c28dd";
 
     public DatabaseAdapter() {
@@ -34,7 +32,7 @@ public class DatabaseAdapter {
         db = firestoreOptions.getService();
     }
 
-    public static Optional<User> getUserById(String id) {
+    public Optional<User> getUserById(String id) {
         ApiFuture<DocumentSnapshot> futureDoc = db.collection("users")
                 .document(id)
                 .get();
@@ -58,7 +56,7 @@ public class DatabaseAdapter {
         return Optional.empty();
     }
 
-    public static List<User> getAllUsers() {
+    public List<User> getAllUsers() {
         ApiFuture<QuerySnapshot> futureQuery = db.collection("users").get();
         try {
             List<QueryDocumentSnapshot> querySnapshot = futureQuery.get().getDocuments();
@@ -80,11 +78,11 @@ public class DatabaseAdapter {
         return new LinkedList<User>();
     }
 
-    public static boolean emailRegistered(String email) {
+    public boolean emailRegistered(String email) {
         return true; // TODO validate email authentication!
     }
 
-    public static boolean registerUser(User user) {
+    public boolean registerUser(User user) {
         ApiFuture<DocumentReference> futureDocRef = db.collection("users").add(user);
         try {
             DocumentReference docRef = futureDocRef.get();
