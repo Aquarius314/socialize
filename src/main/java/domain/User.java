@@ -1,6 +1,5 @@
 package domain;
 
-import com.google.cloud.firestore.annotation.Exclude;
 
 import java.util.Date;
 
@@ -23,10 +22,6 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.birthdate = birthDate;
-    }
-
-    public String getDisplayName() {
-        return name.concat(" ").concat(surname);
     }
 
     public String getId() {

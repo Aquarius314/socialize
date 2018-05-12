@@ -1,5 +1,3 @@
-build/
-.idea
-.idea/modules
-build/classes
-build/resources
+.idea/
+.gradle
+.mvn/
