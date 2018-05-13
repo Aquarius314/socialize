@@ -9,15 +9,11 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by jakub on 05.05.18.
- */
-
 @Controller
 public class RegistrationController {
 
     @Autowired
-    DatabaseAdapter databaseAdapter;
+    DatabaseAdapter db;
 
     @GetMapping("/")
     public String registrationPage() {
@@ -31,21 +27,20 @@ public class RegistrationController {
         System.out.println(form.getEmail() + ", " + form.getPassword());
         RegistrationJsonResponse response = new RegistrationJsonResponse();
         response.setValidated(validateUserRegistration(form));
-        User user = new User();
-        user.setEmail(form.getEmail());
-        user.setName(form.getName());
-        user.setSurname(form.getSurname());
-        if (databaseAdapter.registerUser(user)) {
-            System.out.println("User registered successfully");
-            response.setMessage("User registered successfully");
+        User user = User.fromRegistrationForm(form);
+        if (db.users.registerUser(user)) {
+            String messageOk = "User registered successfully";
+            System.out.println(messageOk);
+            response.setMessage(messageOk);
         } else {
-            System.out.println("Something went wrong");
-            response.setMessage("Something went wrong");
+            String messageError = "Something went wrong";
+            System.out.println(messageError);
+            response.setMessage(messageError);
         }
         return response;
     }
 
     private boolean validateUserRegistration(RegistrationForm form) {
-        return databaseAdapter.emailRegistered(form.getEmail());
+        return db.auth.emailRegistered(form.getEmail());
     }
 }

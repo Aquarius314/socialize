@@ -16,7 +16,6 @@ registerButton.onclick = function (e) {
     var name = nameInput.value;
     var surname = surnameInput.value;
     if (email && password && name && surname) {
-        alert("Registering...");
         e.preventDefault();
         $.post({
             url : '/register-new-user',
@@ -30,8 +29,12 @@ registerButton.onclick = function (e) {
                 if (res.validated) {
                     window.location.href = '/all-profiles';
                 }
+            },
+            error : function(res) {
+                alert("Some error");
+                console.log(res);
             }
-        })
+        });
     } else {
         alert("Please fill all forms to register");
     }
