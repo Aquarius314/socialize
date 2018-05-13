@@ -8,10 +8,22 @@
 </head>
 <body>
 
-<h1>Profile page</h1>
+<div class="profile profile-label">
+    <p th:text="${user.name} + ' ' + ${user.surname}"></p>
+</div>
+<div class="profile">
+    <div class="profile profile-info">
+        <p th:text="'Works at: ' + ${user.workplace} "></p>
+        <p th:text="'Lives in: ' + ${user.residence} "></p>
+        <p th:text="'From: ' + ${user.origin} "></p>
+        <p th:text="'Studied at: ' + ${user.university} "></p>
+    </div>
 
-    <h2 th:text="'Profile of ' + ${user.name} + ' ' + ${user.surname}">User Profile</h2>
-    <p th:text="'Born: ' + ${user.birthdate}"></p>
+    <div class="profile profile-info">
+        <p>...(posts will be here)...</p>
+    </div>
+</div>
+
 
 </body>
 </html>
