@@ -31,6 +31,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("com.google.firebase:firebase-admin:6.0.0")
     compile('com.google.cloud:google-cloud-firestore:0.46.0-beta')
+    compile('org.projectlombok:lombok:1.16.20')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.jayway.jsonpath:json-path')
 }
