@@ -3,9 +3,6 @@ package dao;
 import com.google.cloud.firestore.*;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by jakub on 05.05.18.
- */
 @Repository
 public class DatabaseAdapter {
 
@@ -16,8 +13,8 @@ public class DatabaseAdapter {
     public DatabaseAdapter() {
         System.out.println("Initializing DatabaseAdapter");
         Firestore firestore = getFirestoreInstance();
-        users = new DatabaseUsersAdapter(firestore);
-        auth = new DatabaseAuthenticationAdapter(firestore);
+        users = new DatabaseUsersAdapter(firestore, "users");
+        auth = new DatabaseAuthenticationAdapter(firestore, "users");
         System.out.println("DatabaseAdapter initialized successfully");
     }
 
@@ -26,8 +23,7 @@ public class DatabaseAdapter {
                 FirestoreOptions.getDefaultInstance().toBuilder()
                         .setProjectId(PROJECT_ID)
                         .build();
-        Firestore firestore = firestoreOptions.getService();
-        return firestore;
+        return firestoreOptions.getService();
     }
 
 }
