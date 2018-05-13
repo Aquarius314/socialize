@@ -30,6 +30,7 @@ public class DatabaseAdapter {
                         .setProjectId(PROJECT_ID)
                         .build();
         db = firestoreOptions.getService();
+        System.out.println("DatabaseAdapter initialized successfully");
     }
 
     public Optional<User> getUserById(String id) {
