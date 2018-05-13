@@ -19,4 +19,12 @@ public class User {
 
     public User() {}
 
+    public static User fromRegistrationForm(RegistrationForm form) {
+        User user = new User();
+        user.name = form.getName();
+        user.surname = form.getSurname();
+        user.email = form.getEmail();
+        return user;
+    }
+
 }

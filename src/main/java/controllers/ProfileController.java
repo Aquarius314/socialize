@@ -10,18 +10,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by jakub on 05.05.18.
- */
 @Controller
 public class ProfileController {
 
     @Autowired
-    DatabaseAdapter databaseAdapter;
+    DatabaseAdapter db;
 
     @RequestMapping("/profile/{id}")
     public String profilePage(Model model, @PathVariable(name="id") String id) {
-        Optional<User> user = databaseAdapter.getUserById(id);
+        Optional<User> user = db.users.getUserById(id);
         if (user.isPresent()) {
             model.addAttribute("user", user.get());
         } else {
@@ -32,7 +29,7 @@ public class ProfileController {
 
     @RequestMapping("/all-profiles")
     public String allProfiles(Model model) {
-        List<User> allUsers = databaseAdapter.getAllUsers();
+        List<User> allUsers = db.users.getAllUsers();
         model.addAttribute("users", allUsers);
         return "profile/all-profiles";
     }
