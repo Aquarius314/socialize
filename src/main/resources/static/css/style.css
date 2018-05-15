@@ -1,21 +1,22 @@
 body {
     background-color: aliceblue;
     margin: 0;
+    font-family: "Montserrat", "Avenir";
 }
-h1 {
-
-    padding: 10px;
+.topbar {
+    margin-left: 40%;
+    margin-right: 40%;
+    padding-top:15px;
     padding-bottom: 20px;
     text-align: center;
     background-color: #82b6b7;
     margin: 0;
-    font-family: "Montserrat", "Avenir";
 }
 
 div.center {
     padding: 20px;
     text-align: center;
-    font-family: "Montserrat", "Avenir";
+
 }
 
 div label {
@@ -26,7 +27,7 @@ div label {
 }
 
 input {
-    width: 250px;
+    width: 80%;
     height: 1.5em;
 }
 
@@ -36,15 +37,60 @@ button {
     height: 1.5em;
 }
 
+.form{
+    position: absolute;
+    text-align: center;
+    border: solid 5px #82b6b7;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 2%;
 
-/*button:hover {*/
-    /*background: #88CC88;*/
-    /*transition: 0.4s;*/
-    /*}*/
+}
 
-/*div.buttons-container {*/
-    /*width: 100%;*/
-    /*margin: auto;*/
-    /*}*/
+.form  input{
+    margin-bottom: 10px;
+}
 
+.form button{
+    color: white;
+    position: relative;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: auto;
+    background-color: #82b6b7;
+    height: 4em;
+    width: 70%;
+    border: 2px solid white;
+    border-radius: 20px;
+    display: block;
+    font-size: 16px;
+}
 
+.main-div{
+    float: top;
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: #82b6b7;
+}
+
+.navi-bar{
+    width: 15%;
+    height: auto%;
+    background-color: red;
+    margin: 5%;
+    float:left;
+}
+
+.home-div{
+    width: 75%;
+    height: auto;
+    background-color: greenyellow;
+}
