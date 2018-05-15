@@ -4,71 +4,16 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
     <title>Welcome to Socialize!</title>
-    <style>
-        body {
-            padding: 0px;
-        }
 
-        div.center-narrow {
-            margin: auto;
-            text-align: center;
-            width: 400px;
-        }
-
-        input {
-            width: 60%;
-            padding: 4px;
-            margin: 5px auto;
-        }
-
-        button {
-            width: 40%;
-            padding: 0.5em;
-            margin-top: 5px;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            gravity: center;
-            background: #99EE99;
-            transition: 0.4s;
-            border: 1px solid green;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background: #88CC88;
-            transition: 0.4s;
-        }
-
-        div.buttons-container {
-            width: 100%;
-            margin: auto;
-        }
-
-        h1 {
-            margin: 0px;
-            border: 2px green solid;
-            border-radius: 5px;
-            padding: 10px;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            text-align: center;
-            background: linear-gradient(#88CC88, #99EE99);
-        }
-    </style>
 </head>
 <body>
 
 <h1>Welcome to Socialize!</h1>
-<div class="center-narrow">
-    <p>Email address</p>
-    <input title="email" id="emailInput" type="email">
-    <p>Password</p>
-    <input title="password" id="passwordInput" type="password">
-    <p>Name</p>
-    <input title="password" id="nameInput" type="text">
-    <p>Surname</p>
-    <input title="password" id="surnameInput" type="text">
+<div class="center">
+    <div><label>Email address:</label><input title="email" id="emailInput" type="email"></div>
+    <div><label>Password:</label><input title="password" id="passwordInput" type="password"></div>
+    <div><label>Name:</label><input title="password" id="nameInput" type="text"></div>
+    <div><label>Surname:</label><input title="password" id="surnameInput" type="text"></div>
     <div class="buttons-container">
         <button id="loginButton">Login</button>
         <button id="registerButton">Register</button>

@@ -1,38 +1,50 @@
 body {
-    background-color: #AAEEAA;
-    padding: 20px;
+    background-color: aliceblue;
+    margin: 0;
+}
+h1 {
+
+    padding: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    background-color: #82b6b7;
+    margin: 0;
+    font-family: "Montserrat", "Avenir";
 }
 
 div.center {
+    padding: 20px;
     text-align: center;
+    font-family: "Montserrat", "Avenir";
 }
 
-div.profile {
-    margin: 10px auto;
-    padding: 5px;
-    border: 3px solid #2b569b;
-    width: 60%;
-    display: flex;
-    flex-direction: row;
+div label {
+    width: 150px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: inline-block
 }
 
-div.profile-label {
-    text-align: center;
-    font-size: 24px;
-    display: block;
+input {
+    width: 250px;
+    height: 1.5em;
 }
 
-div p {
-    padding-left: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+
+button {
+    width: 100px;
+    height: 1.5em;
 }
 
-div.profile-info td {
-    display: inline-block;
-}
 
-div.profile-info {
-    width: 45%;
-    container: flex;
-    flex-direction: column;
-}
+/*button:hover {*/
+    /*background: #88CC88;*/
+    /*transition: 0.4s;*/
+    /*}*/
+
+/*div.buttons-container {*/
+    /*width: 100%;*/
+    /*margin: auto;*/
+    /*}*/
+
+
