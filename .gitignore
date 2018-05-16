@@ -1,3 +1,5 @@
 .idea/
 .gradle
 .mvn/
+Socialize.iml
+serviceAccountKey.json

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegistrationController {
 
     @Autowired
-    DatabaseAdapter db;
+    private DatabaseAdapter db;
 
     @GetMapping("/")
     public String registrationPage() {

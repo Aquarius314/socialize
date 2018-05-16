@@ -14,7 +14,7 @@ import java.util.Optional;
 public class ProfileController {
 
     @Autowired
-    DatabaseAdapter db;
+    private DatabaseAdapter db;
 
     @RequestMapping("/profile/{id}")
     public String profilePage(Model model, @PathVariable(name="id") String id) {

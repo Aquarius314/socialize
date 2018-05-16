@@ -4,11 +4,33 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
     <title th:text="${user.name} + ' ' + ${user.surname}">Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
+    <style>
+        .image-container {
+            border: 2px solid black;
+            background: #111111;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
 
-<div class="profile profile-label">
+<div class="profile-label">
+    <div class="image-container">
+        <img src="/img/swan.jpg">
+    </div>
     <p th:text="${user.name} + ' ' + ${user.surname}"></p>
 </div>
 <div class="profile">
@@ -23,7 +45,6 @@
         <p>...(posts will be here)...</p>
     </div>
 </div>
-
 
 </body>
 </html>
